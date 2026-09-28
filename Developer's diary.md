@@ -1,6 +1,7 @@
 #Developer Diary
 
 ##Entry 1 - Starting the project
+
 **Project Idea**
 Building a *Travel Money Helper*, which help users estimate how much money they need for a trip
 This program will include calculating costs such as visa, flights, accommodation, meals, travel insurance, and emergency money
