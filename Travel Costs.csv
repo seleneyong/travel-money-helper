@@ -1,0 +1,8 @@
+Destination,Currency,Visa_Cost,Flight_Cost,Accommodation_Cost,Meals_Cost,Travel_Insurance_Cost,Transport_Cost,Emergency_Money
+Japan,AUD,$0.00,$900.00,$900.00,$450.00,$80.00,$250.00,300
+Thailand,AUD,$0.00,$500.00,$500.00,$300.00,$60.00,$150.00,200
+New Zealand,AUD,$35.00,$600.00,$850.00,$400.00,$70.00,$250.00,300
+Singapore,AUD,$0.00,$450.00,$800.00,$400.00,$50.00,$120.00,200
+Malaysia,AUD,$0.00,$350.00,$450.00,$250.00,$50.00,$120.00,200
+South Korea,AUD,$0.00,$850.00,$850.00,$450.00,$70.00,$200.00,300
+London,AUD,$0.00,"$1,800.00","$1,500.00",$650.00,$100.00,$300.00,400
