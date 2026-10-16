@@ -45,12 +45,18 @@ AI Prompt used: "Why did i get this error and can i use my code to calculate and
 Solution: "Yes, you can use most of your code! The error happens because accommodation_total is a variable you created, not a column name in your CSV file.
 1. Why do you get this error?
 You created this variable:
+```
 accommodation_total = row['Accommodation_Cost'] * days
+```
 This calculates the total accommodation cost for the number of days.
 But later, you wrote:
+```
 cost_columns = [    'Visa_Cost',    'Flight_Cost',    'accommodation_total',    'meals_total',    'Travel_Insurance_Cost',    'transport_total',    'Emergency_Money']
+```
 When you use this line:
+```
 row[column]
+```
 Python looks for a column called 'accommodation_total' in your CSV data. However, your CSV column is actually called 'Accommodation_Cost', so pandas raises a KeyError.
 In simple words, you are asking pandas to find a column that does not exist in your CSV."
 
@@ -64,42 +70,11 @@ This means that pandas was looking for accommodation_total as a column in my CSV
 
 AI Prompt used: "How can I make the program display 'Please enter an amount in numbers' when users enter text instead of a number for their travel costs?"
 
-Solution: <img width="520" height="776" alt="image" src="https://github.com/user-attachments/assets/d5252460-33cd-4f03-828a-2ed2c4c196a7" /> <img width="495" height="461" alt="image" src="https://github.com/user-attachments/assets/c5467338-625b-40d6-8ea9-8af66ea9cb97" />
+Solution:
+<img width="520" height="776" alt="image" src="https://github.com/user-attachments/assets/d5252460-33cd-4f03-828a-2ed2c4c196a7" /> <img width="495" height="461" alt="image" src="https://github.com/user-attachments/assets/c5467338-625b-40d6-8ea9-8af66ea9cb97" />
 
- "You can use `try` and `except ValueError`, just like before. If the user enters `fifty` instead of `50`, the program will display "Please enter an amount in numbers." and ask them to try again.
-You need to make this change in both sections of your code.
-1.For a destination found in the CSV
-Find this line:
-```
-own_cost = float(input(f"Enter your {category} cost: AUD $"))
-```
-Replace it with:
-```
-while True:    try:        own_cost = float(input(f"Enter your {category} cost: AUD $"))        break    except ValueError:        print("Please enter an amount in numbers.")
-```
-Keep your existing code below it:
-```
-if category in daily_categories:    personalised_costs[category] = own_cost * dayselse:    personalised_costs[category] = own_cost
-```
-For a destination not found in the CSV
-Find this line in your `else` section:
-```
-cost = float(input(f"Enter your {category} cost: AUD $"))
-```
-Replace it with:
-```
-while True:    try:        cost = float(input(f"Enter your {category} cost: AUD $"))        break    except ValueError:        print("Please enter an amount in numbers.")
-```
-Keep the existing code that multiplies daily costs by `days` underneath it.
-How it works:
-For example, if the user enters `fifty`:
-Example output
-Enter your Flight cost: AUD $fifty Please enter an amount in numbers. Enter your Flight cost: AUD $500
-- `try` attempts to convert the input into a number using `float()`.
-- `except ValueError` catches the error when the input is text that cannot be converted into a number.
-- `while True` allows the user to enter the cost again.
-- `break` stops the loop when a valid number is entered.
+What I changed:
+I changed the cost input by adding try and except ValueError, a while True loop and break. This is added to both sections where users enter their own costs, whether the destination is found in the CSV file or not. Thus, when a user enter an incorrect text the program would not stop and cause an error.
 
-This also accepts decimal amounts such as `50.50`, which is useful for your travel budget.
 #input() is used to collects what the user type
 #float() is used to converts the input into a number so it can be calculated by Python
