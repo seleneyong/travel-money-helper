@@ -57,6 +57,9 @@ In simple words, you are asking pandas to find a column that does not exist in y
 What I kept and changed:
 This means that pandas was looking for accommodation_total as a column in my CSV file, but that column did not exist. Therefore, I kept my original code structure, and continued calculating accommodation, meals and transport costs based on the number of days. I removed cost_columns because my accommodation, meals and transport totals have already been calculated as separate variables. In addition, I used accommodation_total, meals_total and transport_total directly when displaying and calculating the costs, and I added each cost together manually to calculate total_cost.
 
-    
+##Entry 3 - Personalised costs
+*Problem faced*
+1. Initially, I did not use .strip().upper() when handling the choice typed by the users, so if user typed in with extra spaces and lowercase the program will state an error. Therefore, by adding this it will remove the extra spaces and changes lowercase to uppercase, so it can be handled corrcetly.
+
 #input() is used to collects what the user type
 #float() is used to converts the input into a number so it can be calculated by Python
