@@ -18,6 +18,8 @@ Seventh, users enter their available budget, and the program checks whether thei
 Eight, Gemini AI gives budgeting suggestion based on the calculated travel costs and available budget.
 Ninth, program displays the final travel budget, including the total estimated costs, remaining money or budget shortfall, and AI budgeting suggestion.
 
+##Entry 2- Calculating estimated travel costs based on CSV file
+
 **How I started**
 First, I planned what information the program need from the users such as how much needed for visa, flights, accommodation, meals, travel insurance, transport fee, and emergency money.
 Second, I decided to create a "Travel Costs.csv" file, which will be used as a reference costs that store example of travel costs for different destination such as Japan, Thailand, New Zealand, Singapore, Malaysia, Korea and London (Users can replace the data with their own costs by choosing "N" ).
@@ -32,9 +34,28 @@ Fourth, I cleaned the Visa_Cost, Flight_Cost, Accommodation_Cost, Meals_Cost, Tr
 **Estimated travel costs**
 First, display all the available destination from the Travel Costs.csv file.
 Second, users choose destination and days.
-Third, 
-Initially, I did not use .str.lower() and .lower() when finding the selected destination typed by the users, so if user typed japan the program will state that japan is not found in the Travel Costs.csv file. Therefore, by adding this it will ignore the uppercase and lowercase differences 
+Third, program will multiplied the cost for accommodation, meals, and transport by the number of days, as it is a daily costs.
+Fourth, display the estimated costs for the selected destination.
+*Problem faced*
+1. Initially, I did not use .str.lower() and .lower() when finding the selected destination typed by the users, so if user typed japan the program will state that japan is not found in the Travel Costs.csv file. Therefore, by adding this it will ignore the uppercase and lowercase differences.
+2. I faced an error when calculating and displaying the estimated travel costs, I got a KeyError: 'accommodation_total'. This might happened because accommodation_total was a variable I created, not a column name in my CSV file. I made the same mistake with meals_total and transport_total when I added them to the cost_columns list.
+   
+AI Prompt used: "Why did i get this error and can i use my code to calculate and display the estimated travel costs?"
 
+Solution: "Yes, you can use most of your code! The error happens because accommodation_total is a variable you created, not a column name in your CSV file.
+1. Why do you get this error?
+You created this variable:
+accommodation_total = row['Accommodation_Cost'] * days
+This calculates the total accommodation cost for the number of days.
+But later, you wrote:
+cost_columns = [    'Visa_Cost',    'Flight_Cost',    'accommodation_total',    'meals_total',    'Travel_Insurance_Cost',    'transport_total',    'Emergency_Money']
+When you use this line:
+row[column]
+Python looks for a column called 'accommodation_total' in your CSV data. However, your CSV column is actually called 'Accommodation_Cost', so pandas raises a KeyError.
+In simple words, you are asking pandas to find a column that does not exist in your CSV."
+
+What I kept and changed:
+This means that pandas was looking for accommodation_total as a column in my CSV file, but that column did not exist. Therefore, I kept my original code structure, and continued calculating accommodation, meals and transport costs based on the number of days. I removed cost_columns because my accommodation, meals and transport totals have already been calculated as separate variables. In addition, I used accommodation_total, meals_total and transport_total directly when displaying and calculating the costs, and I added each cost together manually to calculate total_cost.
 
     
 #input() is used to collects what the user type
