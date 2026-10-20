@@ -77,5 +77,29 @@ Solution:
 What I changed:
 I changed the cost input by adding try and except ValueError, a while True loop and break. This is added to both sections where users enter their own costs, whether the destination is found in the CSV file or not. Thus, when a user enter an incorrect text the program would not stop and cause an error.
 
+##Entry 4 - User"s available travel budget
+*Problem faced*
+1. I  was confused on how I change my code so users only can enter their available budget in a positive amount
+
+AI Prompt used(1): "How can I change my code so that when users enter their available budget, they can only enter a positive amount? Currently, my program continues to run even when users enter a negative amount. I want the program to display an error message 'Please enter a positive amount only' and ask them to enter their budget again until they enter a valid amount"
+
+Solution:
+
+<img width="482" height="739" alt="image" src="https://github.com/user-attachments/assets/1d8ec498-4d43-4a8e-9fab-23c50c1d7d3f" />
+
+However, I realised this code did not handle the cases where the user might entered a text such as fifty, instead of a number.
+
+Therefore, I changed my AI Prompt used(2):
+"How can I change my code so that users can only enter a valid positive number for their available budget? Currently, my program continues to run when users enter a negative amount. I want the program to display an error message, 'Please enter a valid positive amount only'. Additionally, when a user enters text. I want the program to display an error message, 'Please enter an amount in numbers', and ask the user to enter their budget again until they enter a valid positive number. Can you explain how to fix this using simple Python code?"
+
+Solution:
+
+<img width="490" height="485" alt="image" src="https://github.com/user-attachments/assets/65278eed-60bf-41b5-b348-7d3c75a1da90" />
+<img width="493" height="724" alt="image" src="https://github.com/user-attachments/assets/f0aab75c-7181-4881-b6e0-eba726e9c593" />
+
+What I changed:
+I changed my code to handle both negative amount and text inputs. I used a try and except ValueError to avoid the program to stop running when user entered a text, a while loop to keep asking until the user enter an amount greater than zero, and a if condition to display an error message when the user entered zero or a negative number. 
+
+ 
 #input() is used to collects what the user type
 #float() is used to converts the input into a number so it can be calculated by Python
