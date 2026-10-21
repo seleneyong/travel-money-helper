@@ -15,12 +15,17 @@ The project also uses the Gemini API to provide budgeting suggestions based on t
 
 ## Sample Input and Output
 *Example input*
+
 Destination: Thailand
-Number of days: 5
-Available budget: AUD $2,000
+
+Number of days: 
+
+Available budget: AUD $2000
+
 Travel costs: example costs from the CSV file
 
 *Example output*
+
 The program will displays the estimated costs for the selected destination, the total estimated travel cost, and whether the available budget is sufficient. It also displays the remaining money or budget shortfall and provides AI budgeting suggestions.
 
 ## How to run the project
