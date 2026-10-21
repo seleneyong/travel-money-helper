@@ -40,7 +40,7 @@ Fourth, display the estimated costs for the selected destination.
 1. Initially, I did not use .str.lower() and .lower() when finding the selected destination typed by the users, so if user typed japan the program will state that japan is not found in the Travel Costs.csv file. Therefore, by adding this it will ignore the uppercase and lowercase differences.
 2. I faced an error when calculating and displaying the estimated travel costs, I got a KeyError: 'accommodation_total'. This might happened because accommodation_total was a variable I created, not a column name in my CSV file. I made the same mistake with meals_total and transport_total when I added them to the cost_columns list.
    
-AI Prompt used: "Why did i get this error and can i use my code to calculate and display the estimated travel costs?"
+AI Prompt used: "Why did i get this error and can I use my code to calculate and display the estimated travel costs?"
 
 Solution: "Yes, you can use most of your code! The error happens because accommodation_total is a variable you created, not a column name in your CSV file.
 1. Why do you get this error?
@@ -81,7 +81,7 @@ I changed the cost input by adding try and except ValueError, a while True loop 
 *Problem faced*
 1. I  was confused on how I change my code so users only can enter their available budget in a positive amount
 
-AI Prompt used(1): "How can I change my code so that when users enter their available budget, they can only enter a positive amount? Currently, my program continues to run even when users enter a negative amount. I want the program to display an error message 'Please enter a positive amount only' and ask them to enter their budget again until they enter a valid amount"
+AI Prompt used(1): "How can I change my code so that when users enter their available budget, they can only enter a positive amount? Currently, my program continues to run even when users enter a zero or a negative amount, but I want the program to display an error message 'Please enter a positive amount only' and ask them to enter their budget again until they enter a valid amount"
 
 Solution:
 
@@ -90,7 +90,7 @@ Solution:
 However, I realised this code did not handle the cases where the user might entered a text such as fifty, instead of a number.
 
 Therefore, I changed my AI Prompt used(2):
-"How can I change my code so that users can only enter a valid positive number for their available budget? Currently, my program continues to run when users enter a negative amount. I want the program to display an error message, 'Please enter a valid positive amount only'. Additionally, when a user enters text. I want the program to display an error message, 'Please enter an amount in numbers', and ask the user to enter their budget again until they enter a valid positive number. Can you explain how to fix this using simple Python code?"
+"How can I change my code so that users can only enter a valid positive number for their available budget? Currently, my program continues to run when users enter a zero or a negative amount, but I want the program to display an error message, 'Please enter a valid positive amount only'. Additionally, when a user enters text, I want the program to display an error message, 'Please enter an amount in numbers', and ask the user to enter their budget again until they enter a valid positive number. Can you explain how to fix this using simple Python code?"
 
 Solution:
 
@@ -99,6 +99,19 @@ Solution:
 
 What I changed:
 I changed my code to handle both negative amount and text inputs. I used a try and except ValueError to avoid the program to stop running when user entered a text, a while loop to keep asking until the user enter an amount greater than zero, and a if condition to display an error message when the user entered zero or a negative number. 
+
+##Entry 5 - Conversational assistant
+
+*Problem faced*
+1. I was unsure about how I can set up the Gemini API to work with my existing travel budget calculation. I wanted to understand how to send a prompt to Gemini and receives budgeting suggestions based on the user's destination, travel costs and available budget
+
+AI Prompt asked: "Can you explain in simple words what I need to do to add the Gemini API to work with my existing travel budget calculation? Explain how the API key, prompt and Gemini response work, and how they can fit into my project. I want to understand the steps before I start writing the code myself."
+
+Solution:
+
+<img width="516" height="786" alt="image" src="https://github.com/user-attachments/assets/ef988d55-6abb-4980-8923-d8c999db962e" />
+<img width="532" height="791" alt="image" src="https://github.com/user-attachments/assets/c846a651-55cc-46a5-9a50-30f04df551b9" />
+
 
  
 #input() is used to collects what the user type
