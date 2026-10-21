@@ -18,7 +18,7 @@ The project also uses the Gemini API to provide budgeting suggestions based on t
 
 Destination: Thailand
 
-Number of days: 
+Number of days: 6
 
 Available budget: AUD $2000
 
