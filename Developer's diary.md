@@ -466,5 +466,29 @@ with gr.Blocks() as demo:
 demo.launch()
 ```
 "
-   
+
+Solution:
+
+<img width="662" height="691" alt="image" src="https://github.com/user-attachments/assets/3313e1d1-8f97-4eab-a20b-9338fa0d6dd9" />
+<img width="684" height="614" alt="image" src="https://github.com/user-attachments/assets/23ed592f-e767-4d0a-a172-33a73b2da4a1" />
+<img width="672" height="309" alt="image" src="https://github.com/user-attachments/assets/7ff1c3ef-c884-4db0-874f-cf53300cb75f" />
+
+What I added:
+I added the code to find the matching destination before checking whether it existed in the CSV file, because it is need to search for the user's destination in the CSV file and store the result in the row variable before using row.empty.
+
+##Entry 7 - Testing 
+
+I tested my Travel Money Helper to check whether the program works correctly, using Python assert statements which help to check whether the results matched the expected outputs.
+First, I tested the travel cost calculation.
+Second,  I tested whether an empty destination is rejected.
+Third, I tested whether the function rejects a zero travel day.
+Fourth, I tested what happened when the user chooses Y, but leaves the flight cost empty.
+Fifth, I tested whether the function rejects a negative flight cost.
+Sixth, I tested the destination that is not in the CSV file.
+Seventh, I tested whether choosing Y replaces the CSV cost with the user's own cost.
+Eigth, I tested program correctly displays a budget shortfall, when estimated travel cost is higher than the available budget.
+Lastly, I also tested whether the Gemini gives budgeting suggestions.
+
+
+
 
