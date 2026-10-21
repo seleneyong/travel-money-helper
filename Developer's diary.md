@@ -186,7 +186,7 @@ I used a dropdown for the Y/N choices for all seven costs, so user can choose wh
 3. I faced an error in the Gradio, initially, I did not know what is wrong in my code. Thus, I asked AI to help me identified what is wrong.
 
 AI Prompt used: "Why is the result error in my Gradio, and how can I fix it? Please explain it in a simple and easy way.
-'''
+```python
 # Install and import the libraries
 
 # install the Gradio library
@@ -194,32 +194,50 @@ AI Prompt used: "Why is the result error in my Gradio, and how can I fix it? Ple
 
 # import the libraries
 import gradio as gr
-import pandas as pd 
+import pandas as pd
+
+# load the travel costs CSV file
+df = pd.read_csv("Travel Costs.csv")
+
 
 # Create the processing function
 
 # defines a function to receive the user's travel details from Gradio
-def get_travel_details(destination, days, available_budget,             
+def get_travel_details(
+    destination, days, available_budget,
     visa_choice, user_visa_cost,
     flight_choice, user_flight_cost,
     accommodation_choice, user_accommodation_cost,
     meals_choice, user_meals_cost,
     insurance_choice, user_travel_insurance_cost,
     transport_choice, user_transport_cost,
-    emergency_choice, user_emergency_money):  # creates a function that processes the user's input
+    emergency_choice, user_emergency_money
+):
 
     # checks whether the destination is entered
     if not destination or not destination.strip():
-        return "Please enter a destination."  # returns an error message if destination is empty or only made up of spaces
+        return "Please enter a destination."
 
     # checks whether the number of days is positive
-    if days <= 0:
-        return "Please enter a positive number of days"  # returns an error message if days entered is negative
+    if days is None or days <= 0:
+        return "Please enter a positive number of days."
 
     # checks whether the available budget is positive
-    if available_budget <= 0:
-        return "Please enter a positive amount"   # returns an error message if the available budget is negative
-    
+    if available_budget is None or available_budget <= 0:
+        return "Please enter a positive amount."
+
+    # checks whether the number of days is a whole number
+    if not float(days).is_integer():
+        return "Please enter a whole number of travel days."
+
+    days = int(days)
+
+    # finds the destination in the CSV
+    row = df[
+        df["Destination"].str.strip().str.lower()
+        == destination.strip().lower()
+    ]
+
     # store the user's own costs
     own_costs = {
         "Visa_Cost": user_visa_cost,
@@ -237,9 +255,9 @@ def get_travel_details(destination, days, available_budget,
         "Flight_Cost": flight_choice,
         "Accommodation_Cost": accommodation_choice,
         "Meals_Cost": meals_choice,
-        "Travel_Insurance_Cost": insurance_choice,
-        "Transport_Cost": transport_choice,
-        "Emergency_Money": emergency_choice
+        "Travel_Insurance_Cost": user_travel_insurance_cost,
+        "Transport_Cost": user_transport_cost,
+        "Emergency_Money": user_emergency_money
     }
 
     # if the destination is not in the CSV, the user must enter every cost
@@ -258,11 +276,11 @@ def get_travel_details(destination, days, available_budget,
         cost_source = "Your own costs (new destination)"
 
     else:
-        # Get the matching CSV row
+        # get the matching CSV row
         row = row.iloc[0]
         selected_costs = {}
 
-        # Select either the CSV cost or the user's own cost
+        # select either the CSV cost or the user's own cost
         for category, choice in choices.items():
 
             if choice == "Y":
@@ -282,7 +300,9 @@ def get_travel_details(destination, days, available_budget,
         cost_source = "CSV estimates and/or your own costs"
 
     # calculate daily costs
-    accommodation_total = selected_costs["Accommodation_Cost"] * days
+    accommodation_total = (
+        selected_costs["Accommodation_Cost"] * days
+    )
     meals_total = selected_costs["Meals_Cost"] * days
     transport_total = selected_costs["Transport_Cost"] * days
 
@@ -312,12 +332,13 @@ def get_travel_details(destination, days, available_budget,
     # display the result
     return (
         f"Destination: {destination.strip()}\n"
-        f"Number of days: {int(days)}\n"
+        f"Number of days: {days}\n"
         f"Cost source: {cost_source}\n"
         f"Estimated total cost: AUD ${total_cost:.2f}\n"
         f"Available budget: AUD ${available_budget:.2f}\n"
         f"{budget_message}"
     )
+
 
 # Create the Gradio interface
 
@@ -325,42 +346,49 @@ def get_travel_details(destination, days, available_budget,
 with gr.Blocks() as demo:
 
     # displays the title
-    gr.Markdown("# Travel Money Helper✈️💰")
+    gr.Markdown("# Travel Money Helper ✈️💰")
+
     # displays the description
-    gr.Markdown("Enter your travel details to start planning your travel budget")
+    gr.Markdown(
+        "Enter your travel details to start planning your travel budget."
+    )
 
     # creates a text box where the user enters their destination
     destination = gr.Textbox(
-        label="Destination",  # displays the label above the text box
-        placeholder="e.g. Japan"  # shows an example before the user types
+        label="Destination",
+        placeholder="e.g. Japan"
     )
 
     # creates a number input for the length of the trip
     days = gr.Number(
-        label="Number of travel days",  # explains what number to enter
-        precision= 0  # displays the number of days without decimal places
+        label="Number of travel days",
+        precision=0
     )
 
     # creates a number input for the user's available budget
     available_budget = gr.Number(
-        label="Available budget (AUD $)",  # displays the available budget label
-        minimum= 0.01  # prevents the number to be zero or negative
+        label="Available budget (AUD $)",
+        minimum=0.01
     )
 
-    # ask user's whether to use the CSV cost or enter their own cost
+    # ask whether to use the CSV cost or enter their own cost
     visa_choice = gr.Dropdown(
         choices=["Y", "N"],
         value="N",
         label="Enter your own visa cost? (Y/N)"
     )
-    user_visa_cost = gr.Number(label="Your visa cost (AUD $)", value=None)
+    user_visa_cost = gr.Number(
+        label="Your visa cost (AUD $)", value=None
+    )
 
     flight_choice = gr.Dropdown(
         choices=["Y", "N"],
         value="N",
         label="Enter your own flight cost? (Y/N)"
     )
-    user_flight_cost = gr.Number(label="Your flight cost (AUD $)", value=None)
+    user_flight_cost = gr.Number(
+        label="Your flight cost (AUD $)", value=None
+    )
 
     accommodation_choice = gr.Dropdown(
         choices=["Y", "N"],
@@ -368,7 +396,8 @@ with gr.Blocks() as demo:
         label="Enter your own accommodation cost? (Y/N)"
     )
     user_accommodation_cost = gr.Number(
-        label="Your accommodation cost per day (AUD $)", value=None
+        label="Your accommodation cost per day (AUD $)",
+        value=None
     )
 
     meals_choice = gr.Dropdown(
@@ -377,7 +406,8 @@ with gr.Blocks() as demo:
         label="Enter your own meals cost? (Y/N)"
     )
     user_meals_cost = gr.Number(
-        label="Your meals cost per day (AUD $)", value=None
+        label="Your meals cost per day (AUD $)",
+        value=None
     )
 
     insurance_choice = gr.Dropdown(
@@ -386,7 +416,8 @@ with gr.Blocks() as demo:
         label="Enter your own travel insurance cost? (Y/N)"
     )
     user_travel_insurance_cost = gr.Number(
-        label="Your travel insurance cost (AUD $)", value=None
+        label="Your travel insurance cost (AUD $)",
+        value=None
     )
 
     transport_choice = gr.Dropdown(
@@ -395,38 +426,45 @@ with gr.Blocks() as demo:
         label="Enter your own transport cost? (Y/N)"
     )
     user_transport_cost = gr.Number(
-        label="Your transport cost per day (AUD $)", value=None
+        label="Your transport cost per day (AUD $)",
+        value=None
     )
 
     emergency_choice = gr.Dropdown(
-         choices=["Y", "N"],
-         value="N",
-         label="Enter your own emergency money? (Y/N)"
+        choices=["Y", "N"],
+        value="N",
+        label="Enter your own emergency money? (Y/N)"
     )
     user_emergency_money = gr.Number(
-        label="Your emergency money (AUD $)", value=None
+        label="Your emergency money (AUD $)",
+        value=None
     )
 
-    # creates a button that the user clicks to submit their details
+    # creates a button to submit the travel details
     calculate = gr.Button("Submit Travel Details")
 
     # creates a text box to display the result
-    result = gr.Textbox(label= "Your Travel Details")
+    result = gr.Textbox(label="Your Travel Details")
 
     # connects the button to the processing function
     calculate.click(
-        fn=get_travel_details,  # runs this function when the button is clicked
-        inputs=[destination, days, available_budget,
+        fn=get_travel_details,
+        inputs=[
+            destination, days, available_budget,
             visa_choice, user_visa_cost,
             flight_choice, user_flight_cost,
             accommodation_choice, user_accommodation_cost,
             meals_choice, user_meals_cost,
             insurance_choice, user_travel_insurance_cost,
             transport_choice, user_transport_cost,
-            emergency_choice, user_emergency_money],  # passes these inputs to the function
-        outputs=result  
+            emergency_choice, user_emergency_money
+        ],
+        outputs=result
     )
 
-demo.launch()  # launces the Gradio interface" why is the result error
-'''
+# launches the Gradio interface
+demo.launch()
+```
+"
+   
 
