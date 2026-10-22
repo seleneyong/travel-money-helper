@@ -3,6 +3,7 @@
 ##Entry 1 - Starting the project
 
 **Project Idea**
+
 Building a *Travel Money Helper*, which help users estimate how much money they need for a trip
 This program will include calculating costs such as visa, flights, accommodation, meals, travel insurance, transport fee, and emergency money
 This program can be useful for planning a trip 
@@ -21,23 +22,27 @@ This program can be useful for planning a trip
 ##Entry 2- Calculating estimated travel costs based on CSV file
 
 **How I started**
+
 First, I planned what information the program need from the users such as how much needed for visa, flights, accommodation, meals, travel insurance, transport fee, and emergency money.
 Second, I decided to create a "Travel Costs.csv" file, which will be used as a reference costs that store example of travel costs for different destination such as Japan, Thailand, New Zealand, Singapore, Malaysia, Korea and London (Users can replace the data with their own costs by choosing "N" ).
 Third, I created a "Travel money helper.ipynb" Colab notebook, and loaded the "Travel Costs.csv" file using pandas. 
 
 **Loading the CSV file**
+
 First, I uploaded the created Travel Costs.csv file into Colab.
 Second, I used df = pd.read_csv('Travel Costs.csv'), to reads the Travel Costs CSV file.
 Third, I used print(df.dtypes), to check whether the costs is read as number.
 Fourth, I cleaned the Visa_Cost, Flight_Cost, Accommodation_Cost, Meals_Cost, Travel_Insurance_Cost, Transport_Cost, Emergency_Money columns by removing the dollar signs and commas, then converted the text into a number so Python could use them for calculation.
 
 **Estimated travel costs**
+
 First, display all the available destination from the Travel Costs.csv file.
 Second, users choose destination and days.
 Third, program will multiplied the cost for accommodation, meals, and transport by the number of days, as it is a daily costs.
 Fourth, display the estimated costs for the selected destination.
 
 **Problem faced**
+
 1. Initially, I did not use .str.lower() and .lower() when finding the selected destination typed by the users, so if user typed japan the program will state that japan is not found in the Travel Costs.csv file. Therefore, by adding this it will ignore the uppercase and lowercase differences.
 2. I faced an error when calculating and displaying the estimated travel costs, I got a KeyError: 'accommodation_total'. This might happened because accommodation_total was a variable I created, not a column name in my CSV file. I made the same mistake with meals_total and transport_total when I added them to the cost_columns list.
    
@@ -70,6 +75,7 @@ First, if the destination is found, and the user enters N, the program keeps the
 Second, Python then calculates the personalised travel budget using the final chosen costs.
 
 **Problem faced**
+
 1. Initially, I did not use .strip().upper() when handling the choice typed by the users, so if user typed in with extra spaces and lowercase the program will state an error. Therefore, by adding this it will remove the extra spaces and changes lowercase to uppercase, so it can be handled corrcetly.
 2. I faced an error when users enter an incorrect text, such as fifty instead of a number 50 when entering their travel costs. Therefore, I wanted the program to display "Please enter an amount in numbers" and ask the user to reenter again
 
@@ -88,6 +94,7 @@ First, ask how much is the user budget for the trip.
 Second, compare it with total personalised cost.
 
 **Problem faced**
+
 1. I  was confused on how I change my code so users only can enter their available budget in a positive amount
 
 AI Prompt used(1): "How can I change my code so that when users enter their available budget, they can only enter a positive amount? Currently, my program continues to run even when users enter a zero or a negative amount, but I want the program to display an error message 'Please enter a positive amount only' and ask them to enter their budget again until they enter a valid amount"
@@ -156,6 +163,7 @@ I identified several objects in my solution, including the destination textbox, 
 One decision I made myself was to validate the user's inputs inside my get_travel_details() function instead of relying only on the Gradio interface, because I wanted my program to handle invalid inputs and display a clear error message before processing the travel details.
 
 **Problem faced**
+
 1. I wanted to make sure users entered the correct travel details before submitting the travel deails, such as entering a destination, a positive number of days, and a positive available budget
 
 AI Prompt used: "How can I improve my Gradio interface so that users must enter a destination, a positive number of days, and a positive available budget before submitting their travel details? Can you explain to me what I should do and why?"
@@ -492,6 +500,7 @@ Additionally, I also tested whether the Gemini gives budgeting suggestions.
 Lastly, I tested whether the Gradio is connected to Gemini to give budget suggestion.
 
 **Problem faced**
-1.
+
+1.I get an error when testing whether the Gradio is connected to Gemini for budgeting suggestion
 
 
