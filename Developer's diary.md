@@ -503,7 +503,7 @@ Lastly, I tested whether the Gradio is connected to Gemini to give budget sugges
 
 **Problem faced**
 
-1.I got an AssetionError when testing whether the Gradio is connected to Gemini for budgeting suggestion. When I used the Gradio interface, it only stated the result of destination, number of days, cost source, estimated total cost, available budget, and the money remaining. This shows that my Gradio is not connected to my Gemini AI for giving budgeting suggestion.
+1. I got an AssertionError when testing whether the Gradio is connected to Gemini for budgeting suggestion. When I used the Gradio interface, it only stated the result of destination, number of days, cost source, estimated total cost, available budget, and the money remaining. This shows that my Gradio is not connected to my Gemini AI for giving budgeting suggestion.
 
 AI Prompt used: "How can I fix the error when testing whether my Gradio is connected to Gemini AI for budgeting suggestions? My Gradio interface only displays the travel budget calculation but does not show the Gemini AI suggestions. Can you explain to me what I need to change in my code and why, in a simple and easy-to-understand way?"
 
