@@ -25,7 +25,7 @@ This program can be useful for planning a trip
 
 First, I planned what information the program need from the users such as how much needed for visa, flights, accommodation, meals, travel insurance, transport fee, and emergency money.
 Second, I decided to create a "Travel Costs.csv" file, which will be used as a reference costs that store example of travel costs for different destination such as Japan, Thailand, New Zealand, Singapore, Malaysia, Korea and London (Users can replace the data with their own costs by choosing "N" ).
-Third, I created a "Travel money helper.ipynb" Colab notebook, and loaded the "Travel Costs.csv" file using pandas. 
+Third, I created a "Travel_Money_Helper.ipynb" Colab notebook, and loaded the "Travel Costs.csv" file using pandas. 
 
 **Loading the CSV file**
 
