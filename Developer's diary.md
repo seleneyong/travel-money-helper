@@ -118,6 +118,7 @@ Fourth, test whether the Gemini works.
 Fifth, connect Gemini to my existing calculated travel budget.
 
 **Problem faced**
+
 1. I was unsure about how I can set up the Gemini API to work with my existing travel budget calculation. I wanted to understand how to send a prompt to Gemini and receives budgeting suggestions based on the user's destination, travel costs and available budget
 
 AI Prompt used: "Can you explain in simple words what I need to do to add the Gemini API to work with my existing travel budget calculation? Explain how the API key, prompt and Gemini response work, and how they can fit into my project. I want to understand the steps before I start writing the code myself."
@@ -487,8 +488,10 @@ Fifth, I tested whether the function rejects a negative flight cost.
 Sixth, I tested the destination that is not in the CSV file.
 Seventh, I tested whether choosing Y replaces the CSV cost with the user's own cost.
 Eigth, I tested program correctly displays a budget shortfall, when estimated travel cost is higher than the available budget.
-Lastly, I also tested whether the Gemini gives budgeting suggestions.
+Additionally, I also tested whether the Gemini gives budgeting suggestions.
+Lastly, I tested whether the Gradio is connected to Gemini to give budget suggestion.
 
-
+**Problem faced**
+1.
 
 
