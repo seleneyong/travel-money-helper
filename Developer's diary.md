@@ -1,6 +1,6 @@
-#Developer Diary
+# Developer Diary
 
-**##Entry 1 - Starting the project**
+## Entry 1 - Starting the project
 
 **Project Idea**
 
@@ -19,7 +19,7 @@ This program can be useful for planning a trip
 8. Eight, Gemini AI gives budgeting suggestion based on the calculated travel costs and available budget.
 9. Ninth, program displays the final travel budget, including the total estimated costs, remaining money or budget shortfall, and AI budgeting suggestion.
 
-**##Entry 2- Calculating estimated travel costs based on CSV file**
+## Entry 2- Calculating estimated travel costs based on CSV file
 
 **How I started**
 
@@ -70,7 +70,7 @@ In simple words, you are asking pandas to find a column that does not exist in y
 What I kept and changed:
 This means that pandas was looking for accommodation_total as a column in my CSV file, but that column did not exist. Therefore, I kept my original code structure, and continued calculating accommodation, meals and transport costs based on the number of days. I removed cost_columns because my accommodation, meals and transport totals have already been calculated as separate variables. In addition, I used accommodation_total, meals_total and transport_total directly when displaying and calculating the costs, and I added each cost together manually to calculate total_cost.
 
-**##Entry 3 - Personalised costs**
+## Entry 3 - Personalised costs
 
 First, if the destination is found, and the user enters N, the program keeps the estimated cost from the CSV. If the user enters Y, they can enter their own cost. If the destination is not found, users get to enter their own destination and costs.
 Second, Python then calculates the personalised travel budget using the final chosen costs.
@@ -90,7 +90,7 @@ Solution:
 What I changed:
 I changed the cost input by adding try and except ValueError, a while True loop and break. This is added to both sections where users enter their own costs, whether the destination is found in the CSV file or not. Thus, when a user enter an incorrect text the program would not stop and cause an error.
 
-**##Entry 4 - User"s available travel budget**
+## Entry 4 - User"s available travel budget
 
 First, ask how much is the user budget for the trip.
 Second, compare it with total personalised cost.
@@ -118,7 +118,7 @@ Solution:
 What I changed:
 I changed my code to handle both negative amount and text inputs. I used a try and except ValueError to avoid the program to stop running when user entered a text, a while loop to keep asking until the user enter an amount greater than zero, and a if condition to display an error message when the user entered zero or a negative number. 
 
-**##Entry 5 - Conversational assistant to give budgeting suggestion**
+## Entry 5 - Conversational assistant to give budgeting suggestions
 
 First, set up the API key in colab secrets.
 Second, install and connect to Gemini.
@@ -154,7 +154,7 @@ Solution:
 What I changed:
 I changed my code by adding the personality instruction to the contents when calling Gemini. Thus, Gemini could receive both the personality instructions and the prompt. 
    
-**##Entry 6 - Travel Money Helper interface**
+## Entry 6 - Travel Money Helper interface
 
 First, install Gradio and import the libraries.
 Second, create the processing function.
@@ -487,7 +487,7 @@ Solution:
 What I added:
 I added the code to find the matching destination before checking whether it existed in the CSV file, because it is need to search for the user's destination in the CSV file and store the result in the row variable before using row.empty.
 
-**##Entry 7 - Testing**
+## Entry 7 - Testing
 
 I tested my Travel Money Helper to check whether the program works correctly, using Python assert statements which help to check whether the results matched the expected outputs.
 First, I tested the travel cost calculation.
