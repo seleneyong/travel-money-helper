@@ -85,7 +85,7 @@ AI Prompt used: "How can I make the program display 'Please enter an amount in n
 
 Solution:
 
-<img width="520" height="776" alt="image" src="https://github.com/user-attachments/assets/d5252460-33cd-4f03-828a-2ed2c4c196a7" /> <img width="495" height="461" alt="image" src="https://github.com/user-attachments/assets/c5467338-625b-40d6-8ea9-8af66ea9cb97" />
+ <img width="520" height="776" alt="image" src="https://github.com/user-attachments/assets/d5252460-33cd-4f03-828a-2ed2c4c196a7" />  <img width="495" height="461" alt="image" src="https://github.com/user-attachments/assets/c5467338-625b-40d6-8ea9-8af66ea9cb97" />
 
 What I changed:
 I changed the cost input by adding try and except ValueError, a while True loop and break. This is added to both sections where users enter their own costs, whether the destination is found in the CSV file or not. Thus, when a user enter an incorrect text the program would not stop and cause an error.
@@ -103,7 +103,7 @@ AI Prompt used(1): "How can I change my code so that when users enter their avai
 
 Solution:
 
-<img width="482" height="739" alt="image" src="https://github.com/user-attachments/assets/1d8ec498-4d43-4a8e-9fab-23c50c1d7d3f" />
+ <img width="482" height="739" alt="image" src="https://github.com/user-attachments/assets/1d8ec498-4d43-4a8e-9fab-23c50c1d7d3f" />
 
 However, I realised this code did not handle the cases where the user might entered a text such as fifty, instead of a number.
 
@@ -112,8 +112,8 @@ Therefore, I changed my AI Prompt used(2):
 
 Solution:
 
-<img width="490" height="485" alt="image" src="https://github.com/user-attachments/assets/65278eed-60bf-41b5-b348-7d3c75a1da90" />
-<img width="493" height="724" alt="image" src="https://github.com/user-attachments/assets/f0aab75c-7181-4881-b6e0-eba726e9c593" />
+ <img width="490" height="485" alt="image" src="https://github.com/user-attachments/assets/65278eed-60bf-41b5-b348-7d3c75a1da90" />
+ <img width="493" height="724" alt="image" src="https://github.com/user-attachments/assets/f0aab75c-7181-4881-b6e0-eba726e9c593" />
 
 What I changed:
 I changed my code to handle both negative amount and text inputs. I used a try and except ValueError to avoid the program to stop running when user entered a text, a while loop to keep asking until the user enter an amount greater than zero, and a if condition to display an error message when the user entered zero or a negative number. 
@@ -134,9 +134,9 @@ AI Prompt used: "Can you explain in simple words what I need to do to add the Ge
 
 Solution:
 
-<img width="516" height="786" alt="image" src="https://github.com/user-attachments/assets/ef988d55-6abb-4980-8923-d8c999db962e" />
-<img width="532" height="791" alt="image" src="https://github.com/user-attachments/assets/c846a651-55cc-46a5-9a50-30f04df551b9" />
-<img width="529" height="479" alt="image" src="https://github.com/user-attachments/assets/3e8a669e-4324-41fa-a9be-ff5a24d5d00f" />
+ <img width="516" height="786" alt="image" src="https://github.com/user-attachments/assets/ef988d55-6abb-4980-8923-d8c999db962e" />
+ <img width="532" height="791" alt="image" src="https://github.com/user-attachments/assets/c846a651-55cc-46a5-9a50-30f04df551b9" />
+ <img width="529" height="479" alt="image" src="https://github.com/user-attachments/assets/3e8a669e-4324-41fa-a9be-ff5a24d5d00f" />
 
 What I did:
 After reading the AI's explanation, I learned that I need to create an ask_gemini(prompt) function to send a prompt and receive Gemini's response. I have not connected everything together yet, so my next step is to set up and test the Gemini API before linking it to my budget calculation.
@@ -147,9 +147,9 @@ AI Prompt used: "How can I fix my Gemini API code so that Gemini follows the per
 
 Solution:
 
-<img width="657" height="560" alt="image" src="https://github.com/user-attachments/assets/07410ef2-65e4-4c00-92e6-7c716ae917bd" />
-<img width="684" height="749" alt="image" src="https://github.com/user-attachments/assets/0811c9f4-52bf-4bd3-a2c2-384da878deed" />
-<img width="665" height="465" alt="image" src="https://github.com/user-attachments/assets/9d610853-7b3c-4828-b781-4caf22ad415a" />
+ <img width="657" height="560" alt="image" src="https://github.com/user-attachments/assets/07410ef2-65e4-4c00-92e6-7c716ae917bd" />
+ <img width="684" height="749" alt="image" src="https://github.com/user-attachments/assets/0811c9f4-52bf-4bd3-a2c2-384da878deed" />
+ <img width="665" height="465" alt="image" src="https://github.com/user-attachments/assets/9d610853-7b3c-4828-b781-4caf22ad415a" />
 
 What I changed:
 I changed my code by adding the personality instruction to the contents when calling Gemini. Thus, Gemini could receive both the personality instructions and the prompt. 
@@ -172,9 +172,9 @@ AI Prompt used: "How can I improve my Gradio interface so that users must enter 
 
 Solution:
 
-<img width="564" height="804" alt="image" src="https://github.com/user-attachments/assets/6fffc4ff-023d-47d5-92c9-b986b801a991" />
-<img width="563" height="724" alt="image" src="https://github.com/user-attachments/assets/27830bd8-e3c0-4cca-83e3-9cd78228b0fa" />
-<img width="537" height="440" alt="image" src="https://github.com/user-attachments/assets/00f508b3-9088-40d4-a10c-050409e97889" />
+ <img width="564" height="804" alt="image" src="https://github.com/user-attachments/assets/6fffc4ff-023d-47d5-92c9-b986b801a991" />
+ <img width="563" height="724" alt="image" src="https://github.com/user-attachments/assets/27830bd8-e3c0-4cca-83e3-9cd78228b0fa" />
+ <img width="537" height="440" alt="image" src="https://github.com/user-attachments/assets/00f508b3-9088-40d4-a10c-050409e97889" />
 
 What I changed and rejected:
 I added a condition inside my get_travel_details() function to check whether the user entered a destination. I used if not destination or not destination.strip() to make sure the destination was not empty or only made up of spaces.
@@ -187,8 +187,8 @@ AI Prompt used: "How to improve my Gradio interface so users could choose whethe
 
 Solution:
 
-<img width="795" height="668" alt="image" src="https://github.com/user-attachments/assets/b7ba500f-4f6c-4a84-b2c6-a1c10c1f24ec" />
-<img width="743" height="801" alt="image" src="https://github.com/user-attachments/assets/0abbe33b-01cf-46f4-a35a-2acb5a05b1a7" />
+ <img width="795" height="668" alt="image" src="https://github.com/user-attachments/assets/b7ba500f-4f6c-4a84-b2c6-a1c10c1f24ec" />
+ <img width="743" height="801" alt="image" src="https://github.com/user-attachments/assets/0abbe33b-01cf-46f4-a35a-2acb5a05b1a7" />
 
 
 What I did:
@@ -480,9 +480,9 @@ demo.launch()
 
 Solution:
 
-<img width="662" height="691" alt="image" src="https://github.com/user-attachments/assets/3313e1d1-8f97-4eab-a20b-9338fa0d6dd9" />
-<img width="684" height="614" alt="image" src="https://github.com/user-attachments/assets/23ed592f-e767-4d0a-a172-33a73b2da4a1" />
-<img width="672" height="309" alt="image" src="https://github.com/user-attachments/assets/7ff1c3ef-c884-4db0-874f-cf53300cb75f" />
+ <img width="662" height="691" alt="image" src="https://github.com/user-attachments/assets/3313e1d1-8f97-4eab-a20b-9338fa0d6dd9" />
+ <img width="684" height="614" alt="image" src="https://github.com/user-attachments/assets/23ed592f-e767-4d0a-a172-33a73b2da4a1" />
+ <img width="672" height="309" alt="image" src="https://github.com/user-attachments/assets/7ff1c3ef-c884-4db0-874f-cf53300cb75f" />
 
 What I added:
 I added the code to find the matching destination before checking whether it existed in the CSV file, because it is need to search for the user's destination in the CSV file and store the result in the row variable before using row.empty.
@@ -509,11 +509,11 @@ AI Prompt used: "How can I fix the error when testing whether my Gradio is conne
 
 Soluion:
 
-<img width="757" height="686" alt="image" src="https://github.com/user-attachments/assets/1682f262-cde5-4d42-9ec6-d799785c8f94" />
-<img width="752" height="697" alt="image" src="https://github.com/user-attachments/assets/72dfc53f-a34c-4f6f-8245-42710fac5d6a" />
-<img width="657" height="780" alt="image" src="https://github.com/user-attachments/assets/046d2456-7756-4d7a-9872-1940338123ed" />
-<img width="696" height="521" alt="image" src="https://github.com/user-attachments/assets/100c857c-3b1e-4276-82b1-e5d755be10fe" />
-<img width="663" height="642" alt="image" src="https://github.com/user-attachments/assets/16432173-4bed-42fe-a20f-220b9617c806" />
+ <img width="757" height="686" alt="image" src="https://github.com/user-attachments/assets/1682f262-cde5-4d42-9ec6-d799785c8f94" />
+ <img width="752" height="697" alt="image" src="https://github.com/user-attachments/assets/72dfc53f-a34c-4f6f-8245-42710fac5d6a" />
+ <img width="657" height="780" alt="image" src="https://github.com/user-attachments/assets/046d2456-7756-4d7a-9872-1940338123ed" />
+ <img width="696" height="521" alt="image" src="https://github.com/user-attachments/assets/100c857c-3b1e-4276-82b1-e5d755be10fe" />
+ <img width="663" height="642" alt="image" src="https://github.com/user-attachments/assets/16432173-4bed-42fe-a20f-220b9617c806" />
 
 What I changed:
 I added the Gemini function call, get_budget_suggestions(), after calculating the total travel cost and before the final return statement in my processing function. I also updated my return statement to include the Gemini Budgeting Suggestions. After updating my code, I ran my code again and tested the function using an example of a user travelling to Japan for 5 days with an available budget of $3000. This test passed, and my Gradio interface output included both the travel budget calculation and the Gemini budgeting suggestions.
