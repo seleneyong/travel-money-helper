@@ -90,7 +90,7 @@ Solution:
 What I changed:
 I changed the cost input by adding try and except ValueError, a while True loop and break. This is added to both sections where users enter their own costs, whether the destination is found in the CSV file or not. Thus, when a user enter an incorrect text the program would not stop and cause an error.
 
-## Entry 4 - User"s available travel budget
+## Entry 4 - User's available travel budget
 
 First, ask how much is the user budget for the trip.
 Second, compare it with total personalised cost.
