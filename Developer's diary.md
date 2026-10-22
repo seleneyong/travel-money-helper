@@ -130,7 +130,7 @@ Fifth, connect Gemini to my existing calculated travel budget.
 
 1. I was unsure about how I can set up the Gemini API to work with my existing travel budget calculation. I wanted to understand how to send a prompt to Gemini and receives budgeting suggestions based on the user's destination, travel costs and available budget
 
-AI Prompt used: "Can you explain in simple words what I need to do to add the Gemini API to work with my existing travel budget calculation? Explain how the API key, prompt and Gemini response work, and how they can fit into my project. I want to understand the steps before I start writing the code myself."
+AI Prompt used: "Can you explain in simple words what I need to do to add the Gemini API to work with my existing travel budget calculation? Explain how the API key, prompt and Gemini response work, and how they can fit into my project. I want to understand the steps before I start writing the code myself"
 
 Solution:
 
@@ -183,7 +183,7 @@ For the available budget, I used if available_budget <= 0 instead of the solutio
 
 2. While working on my Travel Money Helper, I faced a problem with my Gradio interface. At first, my program could only calculate travel costs using the information in my Travel Costs.csv file. If a user wanted to travel to a destination that was not in the CSV, the program would display a message saying that the destination could not be found. However, I want my program to address user's that might want to travel to other destinations or use their own estimated costs.
 
-AI Prompt used: "How to improve my Gradio interface so users could choose whether to use the CSV costs or enter their own costs? and how to allow users to enter all their own costs when their destination was not available in the CSV? explain to me in simple and easy understanding
+AI Prompt used: "How to improve my Gradio interface so users could choose whether to use the CSV costs or enter their own costs? and how to allow users to enter all their own costs when their destination was not available in the CSV? explain it in a simple and easy understanding"
 
 Solution:
 
@@ -196,7 +196,7 @@ I used a dropdown for the Y/N choices for all seven costs, so user can choose wh
 
 3. I faced an error in the Gradio, initially, I did not know what is wrong in my code. Thus, I asked AI to help me identified what is wrong.
 
-AI Prompt used: "Why is the result error in my Gradio, and how can I fix it? Please explain it in a simple and easy way.
+AI Prompt used: "Why is the result error in my Gradio, and how can I fix it? Please explain it in a simple and easy way
 ```python
 # Install and import the libraries
 
