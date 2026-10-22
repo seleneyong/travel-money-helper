@@ -44,6 +44,7 @@ Fourth, display the estimated costs for the selected destination.
 **Problem faced**
 
 1. Initially, I did not use .str.lower() and .lower() when finding the selected destination typed by the users, so if user typed japan the program will state that japan is not found in the Travel Costs.csv file. Therefore, by adding this it will ignore the uppercase and lowercase differences.
+   
 2. I faced an error when calculating and displaying the estimated travel costs, I got a KeyError: 'accommodation_total'. This might happened because accommodation_total was a variable I created, not a column name in my CSV file. I made the same mistake with meals_total and transport_total when I added them to the cost_columns list.
    
 AI Prompt used: "Why did i get this error and can I use my code to calculate and display the estimated travel costs?"
@@ -77,6 +78,7 @@ Second, Python then calculates the personalised travel budget using the final ch
 **Problem faced**
 
 1. Initially, I did not use .strip().upper() when handling the choice typed by the users, so if user typed in with extra spaces and lowercase the program will state an error. Therefore, by adding this it will remove the extra spaces and changes lowercase to uppercase, so it can be handled corrcetly.
+   
 2. I faced an error when users enter an incorrect text, such as fifty instead of a number 50 when entering their travel costs. Therefore, I wanted the program to display "Please enter an amount in numbers" and ask the user to reenter again
 
 AI Prompt used: "How can I make the program display 'Please enter an amount in numbers' when users enter text instead of a number for their travel costs?"
@@ -501,6 +503,19 @@ Lastly, I tested whether the Gradio is connected to Gemini to give budget sugges
 
 **Problem faced**
 
-1.I get an error when testing whether the Gradio is connected to Gemini for budgeting suggestion
+1.I got an AssetionError when testing whether the Gradio is connected to Gemini for budgeting suggestion. When I used the Gradio interface, it only stated the result of destination, number of days, cost source, estimated total cost, available budget, and the money remaining. This shows that my Gradio is not connected to my Gemini AI for giving budgeting suggestion.
+
+AI Prompt used: "How can I fix the error when testing whether my Gradio is connected to Gemini AI for budgeting suggestions? My Gradio interface only displays the travel budget calculation but does not show the Gemini AI suggestions. Can you explain to me what I need to change in my code and why, in a simple and easy-to-understand way?"
+
+Soluion:
+
+<img width="757" height="686" alt="image" src="https://github.com/user-attachments/assets/1682f262-cde5-4d42-9ec6-d799785c8f94" />
+<img width="752" height="697" alt="image" src="https://github.com/user-attachments/assets/72dfc53f-a34c-4f6f-8245-42710fac5d6a" />
+<img width="657" height="780" alt="image" src="https://github.com/user-attachments/assets/046d2456-7756-4d7a-9872-1940338123ed" />
+<img width="696" height="521" alt="image" src="https://github.com/user-attachments/assets/100c857c-3b1e-4276-82b1-e5d755be10fe" />
+<img width="663" height="642" alt="image" src="https://github.com/user-attachments/assets/16432173-4bed-42fe-a20f-220b9617c806" />
+
+What I changed:
+I added the Gemini function call, get_budget_suggestions(), after calculating the total travel cost and before the final return statement in my processing function. I also updated my return statement to include the Gemini Budgeting Suggestions. After updating my code, I ran my code again and tested the function using an example of a user travelling to Japan for 5 days with an available budget of $3000. This test passed, and my Gradio interface output included both the travel budget calculation and the Gemini budgeting suggestions.
 
 
